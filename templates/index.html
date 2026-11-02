@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fast, browser-based developer toolkit for everyday coding tasks.">
+  <meta name="theme-color" content="#11131b">
+  <title>DevToolkit Pro — Developer Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">&lt;/&gt;</span><span>DevToolkit<span class="brand-pro"> PRO</span></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav class="nav-list" aria-label="Tool navigation">
+      <button class="nav-item active" data-tool="json"><span>◇</span> JSON Studio <kbd>01</kbd></button>
+      <button class="nav-item" data-tool="base64"><span>⇄</span> Base64 <kbd>02</kbd></button>
+      <button class="nav-item" data-tool="url"><span>↗</span> URL Encoder <kbd>03</kbd></button>
+      <button class="nav-item" data-tool="hash"><span>#</span> Hash Generator <kbd>04</kbd></button>
+      <button class="nav-item" data-tool="uuid"><span>✳</span> UUID Generator <kbd>05</kbd></button>
+      <button class="nav-item" data-tool="jwt"><span>◈</span> JWT Decoder <kbd>06</kbd></button>
+      <button class="nav-item" data-tool="regex"><span>.*</span> Regex Tester <kbd>07</kbd></button>
+      <button class="nav-item" data-tool="api"><span>⌁</span> API Tester <kbd>08</kbd></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="status-line"><span class="status-dot"></span><span id="server-status">Checking server…</span></div>
+      <p>Built for developers.<br><span>Version 1.0.0</span></p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb-current">JSON Studio</strong></div>
+      <div class="top-actions"><span class="keyboard-hint">LOCAL-FIRST UTILITIES</span><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☼</button></div>
+    </header>
+
+    <section class="welcome">
+      <div><div class="eyebrow"><span class="eyebrow-dot"></span> DEVELOPER WORKSPACE</div>
+        <h1 id="page-title">Build faster.<br><em>Debug smarter.</em></h1>
+        <p id="page-subtitle">Your everyday developer utilities, together in one clean workspace.</p>
+      </div>
+      <div class="welcome-orb"><div class="orb-inner">&lt;/&gt;</div></div>
+    </section>
+
+    <section class="tool-panel" id="tool-json">
+      <div class="panel-heading"><div><div class="panel-kicker">01 / DATA FORMATTING</div><h2>JSON Studio</h2><p>Format, validate and minify JSON data.</p></div><span class="pill">INSTANT</span></div>
+      <div class="editor-grid">
+        <div class="editor-card"><div class="editor-head"><label for="json-input">INPUT JSON</label><button class="text-button" data-action="json-sample">Load sample</button></div><textarea id="json-input" spellcheck="false" placeholder='{"name":"Adarsh","role":"Developer"}'></textarea><div class="editor-foot"><span id="json-input-count">0 characters</span><button class="primary-button" data-action="json-format">Format JSON ↗</button></div></div>
+        <div class="editor-card"><div class="editor-head"><label for="json-output">OUTPUT</label><button class="text-button" data-copy="json-output">Copy</button></div><textarea id="json-output" spellcheck="false" readonly placeholder="Formatted output will appear here…"></textarea><div class="editor-foot"><span id="json-status">Waiting for input</span><button class="secondary-button" data-action="json-minify">Minify</button></div></div>
+      </div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-base64">
+      <div class="panel-heading"><div><div class="panel-kicker">02 / TEXT TRANSFORMATION</div><h2>Base64 Converter</h2><p>Encode text to Base64 or decode Base64 back to text. Unicode supported.</p></div><span class="pill">BIDIRECTIONAL</span></div>
+      <div class="editor-card"><div class="editor-head"><label for="base64-input">INPUT</label><button class="text-button" data-action="base64-sample">Load sample</button></div><textarea id="base64-input" placeholder="Enter text or Base64…" spellcheck="false"></textarea><div class="action-row"><button class="primary-button" data-action="base64-encode">Encode →</button><button class="secondary-button" data-action="base64-decode">← Decode</button><button class="text-button" data-action="clear-base64">Clear</button></div><div class="editor-head output-head"><label for="base64-output">RESULT</label><button class="text-button" data-copy="base64-output">Copy</button></div><textarea id="base64-output" readonly placeholder="Your result will appear here…"></textarea><div class="editor-foot"><span id="base64-status">Ready</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-url">
+      <div class="panel-heading"><div><div class="panel-kicker">03 / URL UTILITIES</div><h2>URL Encoder</h2><p>Safely encode or decode URL components.</p></div><span class="pill">WEB READY</span></div>
+      <div class="editor-card"><div class="editor-head"><label for="url-input">INPUT</label></div><textarea id="url-input" placeholder="https://example.com/search?q=hello world&tag=dev" spellcheck="false"></textarea><div class="action-row"><button class="primary-button" data-action="url-encode">Encode →</button><button class="secondary-button" data-action="url-decode">← Decode</button></div><div class="editor-head output-head"><label for="url-output">RESULT</label><button class="text-button" data-copy="url-output">Copy</button></div><textarea id="url-output" readonly placeholder="Result…"></textarea><div class="editor-foot"><span id="url-status">Ready</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-hash">
+      <div class="panel-heading"><div><div class="panel-kicker">04 / CRYPTOGRAPHIC UTILITIES</div><h2>Hash Generator</h2><p>Generate SHA hashes locally in your browser using the Web Crypto API.</p></div><span class="pill">CLIENT-SIDE</span></div>
+      <div class="editor-card"><div class="editor-head"><label for="hash-input">TEXT TO HASH</label></div><textarea id="hash-input" placeholder="Type or paste text to generate a hash…" spellcheck="false"></textarea><div class="action-row"><button class="primary-button" data-action="hash-generate">Generate hashes ↗</button></div><div class="hash-results"><div class="hash-row"><label>SHA-256</label><code id="hash-256">—</code><button class="text-button" data-copy-text="hash-256">Copy</button></div><div class="hash-row"><label>SHA-384</label><code id="hash-384">—</code><button class="text-button" data-copy-text="hash-384">Copy</button></div><div class="hash-row"><label>SHA-512</label><code id="hash-512">—</code><button class="text-button" data-copy-text="hash-512">Copy</button></div></div><div class="editor-foot"><span id="hash-status">Input is processed locally; it is not uploaded.</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-uuid">
+      <div class="panel-heading"><div><div class="panel-kicker">05 / IDENTIFIERS</div><h2>UUID Generator</h2><p>Create random UUID v4 identifiers using the browser crypto API.</p></div><span class="pill">UUID V4</span></div>
+      <div class="editor-card"><div class="editor-head"><label for="uuid-output">GENERATED UUIDS</label><div class="inline-actions"><select id="uuid-count" aria-label="Number of UUIDs"><option>1</option><option>5</option><option selected>10</option><option>25</option><option>50</option></select><button class="text-button" data-copy="uuid-output">Copy all</button></div></div><textarea id="uuid-output" readonly spellcheck="false"></textarea><div class="action-row"><button class="primary-button" data-action="uuid-generate">Generate UUIDs ↗</button></div><div class="editor-foot"><span id="uuid-status">Ready to generate</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-jwt">
+      <div class="panel-heading"><div><div class="panel-kicker">06 / TOKEN INSPECTION</div><h2>JWT Decoder</h2><p>Decode JWT header and payload locally. This does not verify the signature.</p></div><span class="pill warning-pill">DECODE ONLY</span></div>
+      <div class="editor-card"><div class="editor-head"><label for="jwt-input">JSON WEB TOKEN</label></div><textarea id="jwt-input" placeholder="Paste your three-part JWT here…" spellcheck="false"></textarea><div class="action-row"><button class="primary-button" data-action="jwt-decode">Decode token ↗</button></div><div class="jwt-grid"><div><div class="editor-head"><label>HEADER</label></div><pre id="jwt-header">{ }</pre></div><div><div class="editor-head"><label>PAYLOAD</label></div><pre id="jwt-payload">{ }</pre></div></div><div class="editor-foot"><span id="jwt-status">Never paste production secrets into untrusted websites.</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-regex">
+      <div class="panel-heading"><div><div class="panel-kicker">07 / PATTERN MATCHING</div><h2>Regex Tester</h2><p>Test JavaScript regular expressions against sample text.</p></div><span class="pill">LIVE MATCHING</span></div>
+      <div class="editor-card"><div class="form-grid"><div><label class="field-label" for="regex-pattern">REGULAR EXPRESSION</label><input id="regex-pattern" value="\\b\\w+@\\w+\\.\\w+\\b" spellcheck="false"></div><div><label class="field-label" for="regex-flags">FLAGS</label><input id="regex-flags" value="gi" maxlength="6" spellcheck="false"></div></div><div class="editor-head output-head"><label for="regex-input">TEST STRING</label></div><textarea id="regex-input" placeholder="Paste text to find matches…">Contact hello@example.com or team@dev.io for details.</textarea><div class="action-row"><button class="primary-button" data-action="regex-test">Run test ↗</button></div><div class="editor-head output-head"><label>MATCHES</label></div><div id="regex-results" class="result-box">Your matches will appear here.</div><div class="editor-foot"><span id="regex-status">Ready</span></div></div>
+    </section>
+
+    <section class="tool-panel hidden" id="tool-api">
+      <div class="panel-heading"><div><div class="panel-kicker">08 / HTTP CLIENT</div><h2>API Tester</h2><p>Send HTTP requests from your browser and inspect the response.</p></div><span class="pill">FETCH API</span></div>
+      <div class="editor-card"><div class="request-bar"><select id="api-method" aria-label="HTTP method"><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option></select><input id="api-url" type="url" placeholder="https://jsonplaceholder.typicode.com/posts/1"><button class="primary-button" data-action="api-send">Send ↗</button></div><div class="form-grid"><div><label class="field-label" for="api-headers">HEADERS (JSON)</label><textarea id="api-headers" class="small-textarea" spellcheck="false">{\n  "Accept": "application/json"\n}</textarea></div><div><label class="field-label" for="api-body">REQUEST BODY (JSON)</label><textarea id="api-body" class="small-textarea" spellcheck="false" placeholder='{"title":"hello"}'></textarea></div></div><div class="response-meta"><span id="api-status">No response yet</span><span id="api-time"></span></div><pre id="api-response" class="response-box">Response will appear here…</pre><div class="editor-foot"><span>Browser CORS policies apply. Avoid sending passwords or private tokens.</span></div></div>
+    </section>
+
+    <footer class="footer"><span>© 2026 DevToolkit Pro</span><span>Made with <b>♥</b> for the developer community</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
